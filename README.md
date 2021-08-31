@@ -22,7 +22,12 @@ $arr_data = Array(
 		"user_email" 		=> "admin@foodia.com",
 		"user_pass" 		=> "21232f297a57a5a743894a0e4a801fc3" );
 
+// Call insert data function
 $result = $conn->post_method( 'users', $arr_data );
+echo $result;
+		
+// Call update data function
+$result = $conn->put_method( 'users', $arr_data, 'user_id', 'ID-001' );
 echo $result;
 
 // Call delete data function

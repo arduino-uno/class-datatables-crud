@@ -56,7 +56,6 @@ if ( $method == "Add" ) {
 	$result = $conn->delete_method( "items", "item_id", $item_id );
 	if ( $item_image != 'no_image.jpg' ) unlink( './upload/' . $item_image );
 	echo $result;
-
 }
 
 function upload_image() {

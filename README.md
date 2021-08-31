@@ -1,7 +1,7 @@
 # class-datatables-crud
 Rest API CRUD ( Create, Read, Update &amp; Delete ) for DataTables ( Table plug-in for jQuery )
 
-#### <span style="text-decoration:underline">Examples</span>:
+#### <u>Examples</u>:
 ```php
 // CRUD Methods: "GET", "PUT", "POST" & "DELETE"
 $rows = $conn->get_method( "items", "", "" );

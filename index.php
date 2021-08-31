@@ -90,31 +90,43 @@ $rows = json_decode( $rows, true );
 				<div class="modal-body">
 				    <div class="row">
 				      <div class="col-xs-6">
-								<label>Item Name</label>
-								<input type="hidden" name="item_id" id="item_id" />
-								<input type="text" name="item_name" id="item_name" class="form-control" />
-								<br>
-								<label>Price</label>
-								<input type="number" name="item_price" id="item_price" value="1000" step="500" class="form-control" />
-								<br>
-								<label>Category</label>
-								<select name="item_cat" id="item_cat" class="form-control">
-									<?php
-									foreach( $rows as $row ) {
-										echo "<option value='".$row['cat_id']."'>".$row['cat_name']."</option>";
-									}
-									?>
-								</select>
-								<br>
-								<label>Stock</label>
-								<input type="number" name="item_stock" id="item_stock" value="1" class="form-control" />
-								<label>Description</label>
-								<textarea name="item_desc" id="item_desc" placeholder="Describe your item here .." rows="4" cols="50" class="form-control" /></textarea>
+								<div class="form-row">
+									<label>Item Name</label>
+									<input type="hidden" name="item_id" id="item_id" />
+									<input type="text" name="item_name" id="item_name" class="form-control" />
+								</div>
+								<div class="form-row">
+									<label>Price</label>
+									<div class="input-group">
+	        					<span class="input-group-addon">Rp</span>
+										<input type="number" name="item_price" id="item_price" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" />
+									</div>
+								</div>
+								<div class="form-row">
+									<label>Category</label>
+									<select name="item_cat" id="item_cat" class="form-control">
+										<?php
+										foreach( $rows as $row ) {
+											echo "<option value='".$row['cat_id']."'>".$row['cat_name']."</option>";
+										}
+										?>
+									</select>
+								</div>
+								<div class="form-row">
+									<label>Stock</label>
+									<input type="number" name="item_stock" id="item_stock" value="1" class="form-control" />
+								</div>
+								<div class="form-row">
+									<label>Description</label>
+									<textarea name="item_desc" id="item_desc" placeholder="Describe your item here .." rows="4" cols="50" class="form-control" /></textarea>
+								</div>
 							</div>
 				      <div class="col-xs-6">
-								<label>Image</label>
-								<p><span id="item_uploaded_image"></span></p>
-								<p><input type="file" name="item_image" id="item_image" /></p>
+								<div class="form-row">
+									<label>Image</label>
+									<p><span id="item_uploaded_image"></span></p>
+									<p><input type="file" name="item_image" id="item_image" /></p>
+								</div>
 							</div>
 				    </div>
 					</div>

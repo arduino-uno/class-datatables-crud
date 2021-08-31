@@ -1,5 +1,5 @@
 <?php
-// error_reporting(0);
+error_reporting(0);
 require('./db_config.php');
 // Set Database Config
 require('./class_datatables_crud.php');

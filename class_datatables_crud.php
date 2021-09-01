@@ -156,15 +156,13 @@ class Class_DataTables_CRUD {
 
 	}
 
-	public function get_newid( $table="items", $id_key="", $prefix="DT" ) {
+	public function get_newid( $table="items", $id_key="", $prefix="FD" ) {
 
 		try {
-
-			$req = mysqli_query( $this->conn, "SELECT max( $id_key ) FROM $table" );
+			$req = mysqli_query( $this->conn, "SELECT RIGHT( MAX( $id_key ), 3 ) max_val FROM $table WHERE $id_key LIKE '$prefix%'" );
 			$this->rows = mysqli_fetch_array( $req );
 			if ( mysqli_num_rows( $req ) > 0 ) {
-				$max_id = substr( $this->rows[0], 3, 3 );
-				$inc_num = (int)$max_id + 1;
+				$inc_num = (int)$this->rows[0] + 1;
 				$new_id = $prefix . "-00" . (string)$inc_num;
 				return $new_id;
 			} else {

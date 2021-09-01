@@ -39,4 +39,4 @@ $result = $conn->delete_method( "items", "item_id", $item_id );
 if ( $item_image != 'no_image.jpg' ) unlink( './upload/' . $item_image );
 echo $result;
 ```
-###### YouTube Video: https://youtu.be/MbdAso4pv6M
+<span style="color:'#c0c0c0'">YouTube Video: https://youtu.be/MbdAso4pv6M</span>

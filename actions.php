@@ -7,7 +7,7 @@ require('./class_datatables_crud.php');
 $method = isset( $_POST['method'] ) ? filter_var( $_POST['method'], FILTER_SANITIZE_STRING ) : '';
 // Get POST Primary Key
 $item_id = isset( $_POST['item_id'] ) ? filter_var( $_POST['item_id'], FILTER_SANITIZE_STRING ) : '';
-$item_cat = isset( $_POST['item_cat'] ) ? filter_var( $_POST['item_cat'], FILTER_SANITIZE_STRING ) : '';
+$item_cat = isset( $_POST['item_cat'] ) ? filter_var( $_POST['item_cat'], FILTER_SANITIZE_NUMBER_INT ) : '';
 $item_name = isset( $_POST['item_name'] ) ? filter_var( $_POST['item_name'], FILTER_SANITIZE_STRING ) : '';
 $item_price = isset( $_POST['item_price'] ) ? filter_var( $_POST['item_price'], FILTER_SANITIZE_STRING ) : '';
 $item_stock = isset( $_POST['item_stock'] ) ? filter_var( $_POST['item_stock'], FILTER_SANITIZE_STRING ) : '';
@@ -19,8 +19,18 @@ $conn->getConnection();
 
 if ( $method == "Add" ) {
 
+	// get prefix by category
+	if ($item_cat == 1) {
+			$prefix = "FD";
+	} elseif ($item_cat == 2) {
+			$prefix = "DN";
+	} elseif ($item_cat == 3) {
+			$prefix = "SN";
+	} elseif ($item_cat == 4) {
+			$prefix = "DS";
+	}
 	// set a new ID ( primari key )
-	$new_item_id = $conn->get_newid( "items", "item_id", "FD" );
+	$new_item_id = $conn->get_newid( "items", "item_id", $prefix );
 	// set Array new Data
 	$arr_data = Array(
 			"item_id"				=> $new_item_id,

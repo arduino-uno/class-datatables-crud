@@ -9,7 +9,7 @@ $conn->getConnection();
 
 $output = array();
 $rows = Array();
-$query .= "SELECT * FROM items ";
+$query = "SELECT * FROM items ";
 
   if ( isset( $_POST["search"]["value"] ) ) {
   	$query .= 'WHERE item_name LIKE "%'.$_POST["search"]["value"].'%" ';
